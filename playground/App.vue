@@ -1,17 +1,26 @@
 <template>
   <div>
-    <h1>App</h1>
+    <h1>pinia-persist-plugin demo</h1>
+
+    <h2>Counter store</h2>
     <p>counter is {{ counter }}</p>
     <p>double is {{ doubleCounter }}</p>
     <button @click="counterStore.increment">
       increment
     </button>
 
-    <p>Another store</p>
-    <p>test is {{ testStore.test }}</p>
+    <h2>Another store</h2>
+    <p>test counter is {{ testStore.test }}</p>
     <button @click="testStore.increment">
       increment
     </button>
+
+    <h2>Tips</h2>
+    <p>All changes will be persisted in configured store with debounce</p>
+    <p>Open browser and switch to Application tab to see all changes</p>
+
+    <h2>For more information</h2>
+    <a href="https://github.com/guygubaby/pinia-persist-plugin">pinia-persist-plugin</a>
   </div>
 </template>
 

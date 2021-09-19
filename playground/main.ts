@@ -3,6 +3,7 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import { createPersistPlugin } from 'pinia-persist-plugin'
 import App from './App.vue'
+import './style.css'
 
 const pinia = createPinia()
 const plugin = createPersistPlugin()

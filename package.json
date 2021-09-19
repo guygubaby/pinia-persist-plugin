@@ -18,7 +18,7 @@
   "scripts": {
     "dev": "pnpm run -r --parallel --filter ./packages dev",
     "dev:play": "pnpm -C playground run dev -- --open",
-    "build": "tsup src/index.ts --format cjs,esm --dts --no-splitting",
+    "build:play": "pnpm -C playground run build",
     "release": "bumpp --commit --push --tag && npm publish",
     "lint": "eslint \"{packages,playground}/**/*.ts\"",
     "lint:fix": "pnpm lint -- --fix",
