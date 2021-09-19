@@ -36,5 +36,5 @@ jobs:
       # - name: Lint
       #   run: nr lint --if-present
 
-      - name: Test
-        run: pnpm test --if-present
+      # - name: Test
+      #   run: pnpm test --if-present
