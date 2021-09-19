@@ -1,0 +1,39 @@
+{
+  "name": "pinia-persist-plugin-monorepo",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "funding": "https://github.com/sponsors/guygubaby",
+  "author": "guygubaby <guygubaby@gmail.com>",
+  "license": "MIT",
+  "sideEffects": false,
+  "scripts": {
+    "dev": "pnpm run -r --parallel --filter ./packages dev",
+    "dev:play": "pnpm -C playground run dev -- --open",
+    "build": "tsup src/index.ts --format cjs,esm --dts --no-splitting",
+    "release": "bumpp --commit --push --tag && npm publish",
+    "lint": "eslint \"{packages,playground}/**/*.ts\"",
+    "lint:fix": "pnpm lint -- --fix",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@bryce-loskie/eslint-config": "^0.6.0",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.1",
+    "eslint": "^7.32.0",
+    "eslint-plugin-jest": "^24.4.0",
+    "jest": "^27.0.6",
+    "pnpm": "^6.15.1",
+    "ts-jest": "^27.0.5",
+    "tsup": "^4.14.0",
+    "typescript": "^4.3.5"
+  }
+}

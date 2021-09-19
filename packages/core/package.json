@@ -1,0 +1,47 @@
+{
+  "name": "pinia-persist-plugin",
+  "version": "0.1.0",
+  "description": "An opinionated persist plugin for pinia@next",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "funding": "https://github.com/sponsors/guygubaby",
+  "author": "guygubaby <guygubaby@gmail.com>",
+  "license": "MIT",
+  "sideEffects": false,
+  "bugs": {
+    "url": "https://github.com/guygubaby/pinia-persist-plugin/issues"
+  },
+  "homepage": "https://github.com/guygubaby/pinia-persist-plugin#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guygubaby/pinia-persist-plugin.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "pnpm build -- --watch",
+    "build": "tsup",
+    "prepublishOnly": "pnpm build"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@vueuse/core": "^6.4.1",
+    "pinia": "^2.0.0-rc.9",
+    "vue": "^3.2.12"
+  },
+  "peerDependencies": {
+    "pinia": ">=2.0.0-rc.0",
+    "vue": ">=3.2.0"
+  }
+}

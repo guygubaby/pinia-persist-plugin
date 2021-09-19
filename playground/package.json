@@ -1,0 +1,24 @@
+{
+  "name": "play",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "dev": "vite --port 8080"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pinia": "^2.0.0-rc.9",
+    "pinia-persist-plugin": "workspace:^*",
+    "vue": "^3.2.12"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.8.0",
+    "@vue/compiler-sfc": "^3.2.12",
+    "cross-env": "^7.0.3",
+    "vite": "^2.5.10"
+  }
+}
