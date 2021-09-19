@@ -10,5 +10,5 @@ export const tsup: Options = {
   entryPoints: [
     'src/index.ts',
   ],
-  external: ['vue', 'pinia'],
+  external: ['pinia'],
 }
