@@ -31,14 +31,12 @@ app.use(pinia)
 interface Options {
   storage?: Storage // where to store the persistent
   storageKey?: string // which key to persist the store state
-  delay?: number // debounced persistent delay
 }
 
 // The default config is here
 const defaultOptions: Required<Options> = {
   storage: window.sessionStorage,
   storageKey: 'pinia-persist-plugin-state',
-  delay: 300,
 }
 
 const plugin = createPersistPlugin(options?: Options)
