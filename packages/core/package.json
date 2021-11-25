@@ -1,6 +1,6 @@
 {
   "name": "pinia-persist-plugin",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Opinionated persist plugin for pinia@next",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -36,10 +36,9 @@
   },
   "keywords": [],
   "devDependencies": {
-    "@bryce-loskie/utils": "^0.1.11",
-    "pinia": "^2.0.0-rc.9"
+    "pinia": "^2.0.0"
   },
   "peerDependencies": {
-    "pinia": ">=2.0.0-rc.0"
+    "pinia": ">=2.0.0"
   }
 }
