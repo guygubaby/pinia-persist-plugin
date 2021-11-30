@@ -1,16 +1,16 @@
 {
-  "name": "play",
-  "version": "1.0.0",
+  "name": "playground",
+  "version": "0.1.2",
   "description": "",
   "main": "index.js",
   "private": true,
   "scripts": {
-    "dev": "vite --port 8080",
+    "dev": "vite",
     "build": "cross-env NODE_ENV=production vite build"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "pinia": "^2.0.0",
     "pinia-persist-plugin": "workspace:^*",

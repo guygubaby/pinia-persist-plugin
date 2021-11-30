@@ -16,7 +16,7 @@
     </button>
 
     <h2>Reset store util</h2>
-    <button @click="resetStore">
+    <button @click="resetAllStore">
       reset all store
     </button>
     <button @click="resetStoreExceptCounter">
@@ -33,8 +33,8 @@
 </template>
 
 <script lang="ts" setup>
-import { storeToRefs } from 'pinia'
-import { resetStores } from 'pinia-persist-plugin'
+import { storeToRefs, getActivePinia } from 'pinia'
+import { resetStore } from 'pinia-persist-plugin'
 import { useCounterStore } from './store/counter'
 import { useTestStore } from './store/test'
 import pinia from './store/index'
@@ -45,11 +45,11 @@ const { counter, doubleCounter } = storeToRefs(counterStore)
 
 const testStore = useTestStore()
 
-const resetStore = () => {
-  resetStores(pinia)
+const resetAllStore = () => {
+  resetStore()
 }
 
 const resetStoreExceptCounter = () => {
-  resetStores(pinia, 'counter')
+  resetStore('counter')
 }
 </script>

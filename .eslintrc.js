@@ -4,5 +4,7 @@ module.exports = {
   },
   extends: ['@bryce-loskie'],
   plugins: ['jest'],
-  rules: {},
+  rules: {
+    'no-console': 'off',
+  },
 }

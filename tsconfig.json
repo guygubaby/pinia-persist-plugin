@@ -10,6 +10,9 @@
     "strict": true,
     "strictNullChecks": true,
     "resolveJsonModule": true,
+    "paths": {
+      "pinia-persist-plugin": ["./packages/core/src/index.ts"]
+    }
   },
   "exclude": ["**/dist", "node_modules"]
 }
