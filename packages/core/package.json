@@ -1,6 +1,6 @@
 {
   "name": "pinia-persist-plugin",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "Opinionated persist plugin for pinia@next",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -8,7 +8,8 @@
   "exports": {
     ".": {
       "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
     }
   },
   "funding": "https://github.com/sponsors/guygubaby",
