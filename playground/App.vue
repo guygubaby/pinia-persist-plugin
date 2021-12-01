@@ -24,7 +24,7 @@
     </button>
 
     <h2>Tips</h2>
-    <p>All changes will be persisted in configured store with debounce</p>
+    <p>All changes will be persisted in configured store asynchronous </p>
     <p>Open browser and switch to Application tab to see all changes</p>
 
     <h2>For more information</h2>
