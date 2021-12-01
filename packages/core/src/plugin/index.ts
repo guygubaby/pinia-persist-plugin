@@ -8,7 +8,7 @@ export interface Options {
   storageKey?: string
 }
 
-interface PluginPayload extends Omit<Required<Options>, 'delay'> {
+interface PluginPayload extends Required<Options> {
   context: PiniaPluginContext
 }
 
@@ -48,13 +48,8 @@ const persistPlugin = ({ context, storage, storageKey }: PluginPayload) => {
 }
 
 export const createPersistPlugin = (options?: Options) => {
-  options = {
-    ...defaultOptions,
-    ...options,
-  }
-
   const { storage: ds, storageKey: dk } = defaultOptions
-  const { storage = ds, storageKey = dk } = options
+  const { storage = ds, storageKey = dk } = options ?? {}
 
   return (context: PiniaPluginContext) => { persistPlugin({ context, storage, storageKey }) }
 }
