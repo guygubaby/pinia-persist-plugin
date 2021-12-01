@@ -1,6 +1,6 @@
 {
   "name": "pinia-persist-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Opinionated persist plugin for pinia@next",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
