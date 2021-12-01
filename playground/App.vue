@@ -15,16 +15,8 @@
       increment
     </button>
 
-    <h2>Reset store util</h2>
-    <button @click="resetAllStore">
-      reset all store
-    </button>
-    <button @click="resetStoreExceptCounter">
-      reset except counter
-    </button>
-
     <h2>Tips</h2>
-    <p>All changes will be persisted in configured store asynchronous </p>
+    <p>All changes will be persisted in configured store asynchronous</p>
     <p>Open browser and switch to Application tab to see all changes</p>
 
     <h2>For more information</h2>
@@ -33,23 +25,11 @@
 </template>
 
 <script lang="ts" setup>
-import { storeToRefs, getActivePinia } from 'pinia'
-import { resetStore } from 'pinia-persist-plugin'
+import { storeToRefs } from 'pinia'
 import { useCounterStore } from './store/counter'
 import { useTestStore } from './store/test'
-import pinia from './store/index'
 
 const counterStore = useCounterStore()
-
 const { counter, doubleCounter } = storeToRefs(counterStore)
-
 const testStore = useTestStore()
-
-const resetAllStore = () => {
-  resetStore()
-}
-
-const resetStoreExceptCounter = () => {
-  resetStore('counter')
-}
 </script>
