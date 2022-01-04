@@ -31,12 +31,14 @@ app.use(pinia)
 interface Options {
   storage?: Storage // where to store the persistent
   storageKey?: string // which key to persist the store state
+  omits?: string[] | string // store id[s] to omit persist
 }
 
 // The default config is here
 const defaultOptions: Required<Options> = {
   storage: window.sessionStorage,
   storageKey: 'pinia-persist-plugin-state',
+  omits: []
 }
 
 const plugin = createPersistPlugin(options?: Options)

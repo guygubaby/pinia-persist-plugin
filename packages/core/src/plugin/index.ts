@@ -4,8 +4,18 @@ import { queueJob } from './scheduler'
 type Nullable<T> = T | null
 
 export interface Options {
+  /**
+   * which store to persist the state
+   */
   storage?: Storage
+  /**
+   * which key to persist the state
+   */
   storageKey?: string
+  /**
+   * store id[s] to omit persist
+   */
+  omits?: string[] | string
 }
 
 interface PluginPayload extends Required<Options> {
@@ -15,6 +25,7 @@ interface PluginPayload extends Required<Options> {
 const defaultOptions: Required<Options> = {
   storage: window.sessionStorage,
   storageKey: 'pinia-persist-plugin-state',
+  omits: [],
 }
 
 const getPersistedData = (storage: Storage, key: string, storageKey: string) => {
@@ -35,21 +46,41 @@ const persistState = (storage: Storage, storageKey: string, state: Record<string
   storage.setItem(storageKey, JSON.stringify(state))
 }
 
-const persistPlugin = ({ context, storage, storageKey }: PluginPayload) => {
-  const { store, pinia } = context
-  const persistedData = getPersistedData(storage, store.$id, storageKey)
+const toArray = (value: string | string[]): string[] => {
+  if (Array.isArray(value)) return value
+  return [value]
+}
 
-  if (persistedData)
-    store.$patch(persistedData)
+const omitStore = (target: Record<string, StateTree>, omits: string[]): Record<string, StateTree> => {
+  return Object.keys(target).reduce((acc, cur) => {
+    if (!omits.includes(cur))
+      acc[cur] = target[cur]
+    return acc
+  }, {} as Record<string, StateTree>)
+}
+
+const persistPlugin = ({ context, storage, storageKey, omits }: PluginPayload) => {
+  const omitKeys = toArray(omits)
+
+  const { store, pinia } = context
+
+  if (!omitKeys.includes(store.$id)) {
+    const persistedData = getPersistedData(storage, store.$id, storageKey)
+    if (persistedData)
+      store.$patch(persistedData)
+  }
 
   store.$subscribe(() => {
-    queueJob(() => persistState(storage, storageKey, pinia.state.value))
+    queueJob(() => {
+      const state = omitStore(pinia.state.value, omitKeys)
+      persistState(storage, storageKey, state)
+    })
   })
 }
 
 export const createPersistPlugin = (options?: Options) => {
   const { storage: ds, storageKey: dk } = defaultOptions
-  const { storage = ds, storageKey = dk } = options ?? {}
+  const { storage = ds, storageKey = dk, omits = [] } = options ?? {}
 
-  return (context: PiniaPluginContext) => { persistPlugin({ context, storage, storageKey }) }
+  return (context: PiniaPluginContext) => persistPlugin({ context, storage, storageKey, omits })
 }

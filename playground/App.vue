@@ -9,7 +9,7 @@
       increment
     </button>
 
-    <h2>Another store</h2>
+    <h2>Omit store</h2>
     <p>test counter is {{ testStore.test }}</p>
     <button @click="testStore.increment">
       increment
