@@ -2,6 +2,7 @@
   "name": "pinia-persist-plugin-monorepo",
   "version": "1.0.2",
   "description": "",
+  "private": true,
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
